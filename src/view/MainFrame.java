@@ -2,35 +2,25 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.Font;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
+
 
 public class MainFrame extends JFrame {
 
-	private JPanel contentPane;
+	private static final int WIDTH = 900;
+	private static final int HEIGHT = 680;
+	private JPanel contentPane = new JPanel();
+	private JButton btnVisits;
+	private JButton btnPatients;
+	private JButton btnDoctors;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainFrame frame = new MainFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
@@ -38,11 +28,9 @@ public class MainFrame extends JFrame {
 	public MainFrame() {
 		setTitle("PRZYCHODNIA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setMinimumSize(new Dimension(900, 680));
-		contentPane = new JPanel();
-//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-//		contentPane.setLayout(new BorderLayout(0, 0));
+		setMinimumSize(new Dimension(WIDTH, HEIGHT));
 		setContentPane(contentPane);
+		setLocationRelativeTo(null);
 		
 		JPanel main_panel = new JPanel();
 		contentPane.add(main_panel, BorderLayout.CENTER);
@@ -63,5 +51,17 @@ public class MainFrame extends JFrame {
 		btnDoctors.setFont(new Font("Lucida Grande", Font.BOLD, 23));
 		top_panel.add(btnDoctors);
 	}
+	
+	
+	public JButton getBtnVisits() {
+		return btnVisits;
+	}
+	
+	public JButton getBtnPatients() {
+		return btnPatients;
+	}
 
+	public JButton getBtnDoctors() {
+		return btnDoctors;
+	}
 }
